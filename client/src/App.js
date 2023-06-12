@@ -10,7 +10,7 @@ import Home from './pages/Home'
 function App() {
   return (
     <>
-      hello world
+      <Home/>
     </>
   );
 }

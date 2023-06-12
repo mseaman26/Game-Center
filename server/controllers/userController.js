@@ -14,6 +14,15 @@ module.exports = {
 		catch(e){
 			console.log(e)
 		}
-		
 	},
+	async getAllUsers(req, res) {
+		try {
+		  // Using model in route to find all documents that are instances of that model
+		  const result = await User.find({});
+		  res.status(200).json(result);
+		} catch (err) {
+		  console.log('Uh Oh, something went wrong');
+		  res.status(500).json({ message: 'something went wrong' });
+		}
+	  }
 }
