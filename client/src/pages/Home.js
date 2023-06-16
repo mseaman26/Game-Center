@@ -1,12 +1,21 @@
 import React from 'react';
-import Header from '../components/Header'
+import { Link } from 'react-router-dom'
+import Auth from '../utils/auth'
+
 
 
 const Home = () => {
 
+const handleLogOut = () => {
+    Auth.logout()
+}
+
 return (
     <>
-    <Header/>
+    <h1>Home Page</h1>
+    <Link to={'/login'}>Log In</Link>
+    <Link to={'/signup'}>Sign Up</Link>
+    <button onClick={handleLogOut}>Log Out</button>
     </>
 )
 }

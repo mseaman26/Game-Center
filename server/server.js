@@ -1,11 +1,11 @@
 const express = require('express');
-const session = require('express-session');
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
+require('dotenv').config()
+const path = require('path');
 
 const routes = require('./routes');
-const { sessionStore } = require('./config/connection');
+
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -14,15 +14,9 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Configure and use session middleware
-app.use(
-  session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false,
-    store: sessionStore,
-  })
-);
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
 app.use(routes);
 

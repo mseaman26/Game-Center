@@ -1,37 +1,14 @@
 import React, {useEffect, useState} from "react";
+import Auth from '../utils/auth'
 
 const Header = () => {
+    
+console.log(Auth.getToken())
 
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-      async function getAllUsers() {
-        try {
-          const response = await fetch('/api/users', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-  
-          const data = await response.json();
-          setUsers(data);
-        } catch (error) {
-          console.error('Error fetching users:', error);
-        }
-      }
-  
-      getAllUsers();
-    }, []);
     return (
         <>
             <h1>Header</h1>
-            <ul>
-                {users.map((user) => (
-                    <li key={user.id}>{user.email}</li>
-                ))}
-             </ul>
-
+            <p>logged in as: {Auth.getProfile()? Auth.getProfile().data.username : 'not logged in'}</p>
         </>
     )
 }
