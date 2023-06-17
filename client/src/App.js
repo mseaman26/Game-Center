@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -12,7 +12,7 @@ import SignUp from './pages/SignUp'
 function App() {
   return (
       <Router>
-        <Header/>
+        {/* <Header/> */}
         <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
