@@ -12,7 +12,6 @@ import SignUp from './pages/SignUp'
 function App() {
   return (
       <Router>
-        {/* <Header/> */}
         <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
