@@ -57,7 +57,7 @@ module.exports = {
 			});
 			//console.log(userData)
 			const token = await signToken(userData)
-			res.status(200).json(token);
+			res.status(200).json({ message: 'Login successful', token });
 		} catch (err) {
 			res.status(500).json({ message: 'Internal server error' });
 		}
