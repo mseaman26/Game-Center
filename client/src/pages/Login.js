@@ -3,9 +3,11 @@ import { loginApi } from '../utils/api/userApi';
 import Auth from '../utils/auth';
 import { TextField, Button, Container, Typography } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-//comment
+import { useAuthContext } from '../utils/authContext';
+
 
 const LoginForm = () => {
+  const {currentUser, setCurrentUser} = useAuthContext()
   const navigate = useNavigate()
 
   const [userFormData, setUserFormData] = useState({
@@ -26,11 +28,11 @@ const LoginForm = () => {
     // Handle login logic here
     try {
 			const response = await loginApi(userFormData);
-      console.log(response.token)
 			if (!response.token) {
 				throw new Error('something went wrong!');
 			}
 			Auth.login(response.token);
+      setCurrentUser(userFormData.username)
       navigate('/')
 		} catch (err) {
 			console.error(err);

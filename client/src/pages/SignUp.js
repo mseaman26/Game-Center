@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { signupApi } from '../utils/api/userApi';
 import { TextField, Button, Container, Typography } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../utils/authContext';
 import Auth from '../utils/auth'
 
 const SignupForm = () => {
+  const { currentUser, setCurrentUser} = useAuthContext()
+  const navigate = useNavigate()
   const [userFormData, setUserFormData] = useState({
     username: '',
     password: '',
@@ -28,6 +32,8 @@ const SignupForm = () => {
       }
       // Handle successful signup, e.g., redirect to login page
       Auth.login(response.token)
+      setCurrentUser(userFormData.username)
+      navigate('/')
     } catch (err) {
       console.error(err);
       setUserSignupError(true);

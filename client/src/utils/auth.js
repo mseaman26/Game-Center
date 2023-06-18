@@ -5,7 +5,7 @@ class AuthService {
     if(!this.getToken()){
       return
     }
-    //console.log(jwt_decode(this.getToken()))
+    console.log(jwt_decode(this.getToken()))
     return jwt_decode(this.getToken());
   }
 
