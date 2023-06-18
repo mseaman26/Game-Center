@@ -12,9 +12,9 @@ export const loginApi =  async (userData) => {
 			body: JSON.stringify(userData),
 		});
 		console.log(response)
-		// if (!response.ok) {
-		// 	throw new Error('Failed to log in');
-		// }
+		if (!response.ok) {
+			throw new Error('Failed to log in');
+		}
 		const data = await response.json();
 		console.log(data, "response")
 		return data;
@@ -108,9 +108,9 @@ export const signupApi = async (userData) => {
 			body: JSON.stringify(userData),
 		});
 
-		// if (!response.ok) {
-		// 	throw new Error('Failed to create user');
-		// }
+		if (!response.ok) {
+			throw new Error('Failed to create user');
+		}
 
 		const data = await response.json();
 		console.log(data)
