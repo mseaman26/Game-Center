@@ -55,6 +55,10 @@ module.exports = {
 				password,
 				email
 			});
+			if (!userData) {
+				// If user data is not returned, handle it as an error
+				return res.status(500).json({ message: 'no user data' });
+			  }
 			//console.log(userData)
 			const token = await signToken(userData)
 			res.status(200).json({ message: 'Login successful', token });
