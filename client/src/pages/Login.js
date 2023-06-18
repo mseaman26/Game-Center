@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { loginApi } from '../utils/api/userApi';
 import Auth from '../utils/auth';
 import { TextField, Button, Container, Typography } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
-
+  const navigate = useNavigate()
 
   const [userFormData, setUserFormData] = useState({
 		username: '',
@@ -29,6 +30,7 @@ const LoginForm = () => {
 				throw new Error('something went wrong!');
 			}
 			Auth.login(response.token);
+      navigate('/')
 		} catch (err) {
 			console.error(err);
 			setUserLoginError(true);

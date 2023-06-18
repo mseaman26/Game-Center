@@ -11,6 +11,7 @@ export const loginApi =  async (userData) => {
 			},
 			body: JSON.stringify(userData),
 		});
+		console.log(response)
 		if (!response.ok) {
 			throw new Error('Failed to log in');
 		}
