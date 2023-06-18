@@ -63,7 +63,7 @@ module.exports = {
 			const token = await signToken(userData)
 			res.status(200).json({ message: 'Login successful', token });
 		} catch (err) {
-			console.error('Error creating user:', error);
+			console.error('Error creating user:', err);
 			res.status(500).json({ message: 'Internal server error' });
 		}
 	},
