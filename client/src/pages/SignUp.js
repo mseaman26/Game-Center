@@ -27,7 +27,7 @@ const SignupForm = () => {
         throw new Error(response.error);
       }
       // Handle successful signup, e.g., redirect to login page
-      Auth.login(response)
+      Auth.login(response.token)
     } catch (err) {
       console.error(err);
       setUserSignupError(true);
