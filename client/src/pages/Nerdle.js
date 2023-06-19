@@ -1,14 +1,18 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
 const Nerdle = () => {
+
+    const [iFrameHeight, setIframeHeight] = useState(0)
 
     useEffect(() => {
         // Receive the message from the iframe
         const handleMessage = (event) => {
+            console.log(event)
           if (event.data.height) {
             // Adjust the height of the iframe
             const iframe = document.getElementById('nerdleIframe');
             if (iframe) {
+                console.log('iframe')
               iframe.style.height = `${event.data.height}px`;
             }
           }
