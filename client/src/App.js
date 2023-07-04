@@ -6,7 +6,8 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Nerdle from './pages/Nerdle';
-import { AuthProvider } from './utils/authContext';
+import { AuthProvider } from './utils/authContext'
+
 
 
 
