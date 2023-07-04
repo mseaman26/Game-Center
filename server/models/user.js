@@ -1,6 +1,11 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const nerdleResultSchema = new Schema({
+  gamesPlayed: [Number],
+  results: [Number]
+})
+
 const userSchema = new Schema({
   username: {
     type: String,
@@ -16,7 +21,8 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-  }
+  },
+  NerdleResults: nerdleResultSchema
 
 },
   {

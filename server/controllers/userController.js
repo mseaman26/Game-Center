@@ -85,5 +85,12 @@ module.exports = {
 		}catch(error){
 			console.log(error)
 		}
+	},
+	async nerdleResult (req, res) {
+		try{
+			
+		}catch(error){
+			console.log(error)
+		}
 	}
 }

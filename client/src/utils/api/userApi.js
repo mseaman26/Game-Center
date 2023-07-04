@@ -168,7 +168,21 @@ export const updateUserPassword = async (userData) => {
 		throw error;
 	}
 };
-
+//******************NERDLE RESULT */
+export const nerdleResult = async (nerdleData) => {
+	//body should contain username, guesses number, and nerdleNumber
+	try{
+		const response = await fetch('/api/users/nerdle', {
+			method: 'PUT',
+			body: JSON.stringify(nerdleData)
+		})
+		if(!response.ok){
+			throw new Error('nerdle result update failed')
+		}
+	}catch(error){
+		console.error(error)
+	}
+}
 /***********   Deletes A User Password 	***************/
 export const deleteUser = async (id) => {
 	try {
