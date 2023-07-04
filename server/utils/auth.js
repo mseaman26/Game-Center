@@ -15,7 +15,8 @@ module.exports = {
     }
 
     try {
-      const { data } = jwt.verify(token, process.env.SECRET, { maxAge: expiration });
+      //const { data } = jwt.verify(token, process.env.SECRET, { maxAge: expiration });
+      const { data } = jwt.verify(token, process.env.SECRET);
       req.user = data;
       console.log(data + "this is the data");
     } catch {
@@ -27,6 +28,7 @@ module.exports = {
 
   signToken: function ({ username, email, _id }) {
     const payload = { username, email, _id };
-    return jwt.sign({ data: payload }, process.env.SECRET, { expiresIn: expiration });
+    //return jwt.sign({ data: payload }, process.env.SECRET, { expiresIn: expiration });
+    return jwt.sign({ data: payload }, process.env.SECRET);
   },
 };

@@ -1,32 +1,38 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 
 const Nerdle = () => {
 
-    const [iFrameHeight, setIframeHeight] = useState(0)
+  const nerdleIframe = useRef(null)
 
-    useEffect(() => {
-        // Receive the message from the iframe
-        const handleMessage = (event) => {
-            console.log(event)
-          if (event.data.height) {
-            // Adjust the height of the iframe
-            const iframe = document.getElementById('nerdleIframe');
-            if (iframe) {
-                console.log('iframe')
-              iframe.style.height = `${event.data.height}px`;
-            }
+  useEffect(() => {
+      // Receive the message from the iframe
+      const handleMessage = (event) => {
+          console.log(event)
+        if (event.data.height) {
+          // Adjust the height of the iframe
+    
+          if (nerdleIframe.current) {
+              console.log('iframe')
+            nerdleIframe.current.style.height = `${event.data.height}px`;
           }
-        };
-    
-        window.addEventListener('message', handleMessage);
-    
-        return () => {
-          window.removeEventListener('message', handleMessage);
-        };
-      }, []);
+        }
+        if(event.data.nerdleNumber){
+          console.log('nerdle number from iframe: ', event.data.nerdleNumber)
+        }
+        if(event.data.result){
+          console.log('retult from iframe: ', event.data.result)
+        }
+      };
+  
+      window.addEventListener('message', handleMessage);
+  
+      return () => {
+        window.removeEventListener('message', handleMessage);
+      };
+    }, []);
 
-    return(
-        <iframe id='nerdleIframe' src="https://mseaman26.github.io/Mike-s-Nerdle/" title="External Page" />
-    )
+  return(
+      <iframe ref={nerdleIframe} src="https://mseaman26.github.io/Mike-s-Nerdle/" title="External Page" />
+  )
 }
 export default Nerdle
