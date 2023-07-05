@@ -99,6 +99,7 @@ export const showAllUsers = async () => {
 /*************     Creates A New User  ***************/
 export const signupApi = async (userData) => {
 	try {
+		console.log(process.env.MONGODB_URI)
 		const response = await fetch('/api/users/signup', {
 			method: 'POST',
 			headers: {
@@ -107,7 +108,7 @@ export const signupApi = async (userData) => {
 			},
 			body: JSON.stringify(userData),
 		});
-
+		console.log(response)
 		if (!response.ok) {
 			throw new Error('Failed to create user');
 		}
