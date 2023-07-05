@@ -88,6 +88,24 @@ module.exports = {
 	},
 	async nerdleResult (req, res) {
 		try{
+			console.log(req.body)
+			const { username, nerdleNumber, result } = req.body;
+			console.log('username ', username)
+			const user = await User.findOne({ username });
+			console.log(user)
+			if (!user.nerdleResults) {
+				console.log('no prev nerdle results');
+				user.nerdleResults = {}; 
+				user.nerdleResults.gamesPlayed = [];
+			  }
+			if(!user.nerdleResults.gamesPlayed.includes(nerdleNumber)){
+				user.nerdleResults.gamesPlayed.push(nerdleNumber);
+				user.nerdleResults.results.push(result);
+				await user.save();
+				res.json({message: 'nerdle result added'})
+			}else{
+				res.json({message: `you've already logged a result for this nerdle game!`})
+			}
 			
 		}catch(error){
 			console.log(error)

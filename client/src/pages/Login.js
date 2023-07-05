@@ -24,7 +24,6 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userFormData)
     // Handle login logic here
     try {
 			const response = await loginApi(userFormData);

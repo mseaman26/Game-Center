@@ -11,9 +11,6 @@ const Header = () => {
     const navigate = useNavigate()
     const { currentUser, setCurrentUser, loading, setLoading } = useAuthContext()
 
-    console.log(Auth.loggedIn())
-    console.log(Auth.getProfile())
-
     const handleLogOut = () => {
         setCurrentUser('not logged in')
         Auth.logout()
@@ -26,7 +23,6 @@ const Header = () => {
         // Simulate an asynchronous operation
         setTimeout(() => {
           setLoading(false);
-          console.log('loading off')
         }, 2000);
       };
 
@@ -34,6 +30,7 @@ const Header = () => {
     useEffect(() => {
         fetchData()
         if(Auth.loggedIn()){
+            console.log('username in fetch', Auth.getProfile().data.username)
             console.log(Auth.getProfile().data.username)
             setCurrentUser(Auth.getProfile().data.username)
         }else{

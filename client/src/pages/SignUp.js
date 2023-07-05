@@ -26,7 +26,6 @@ const SignupForm = () => {
     // Handle signup logic here
     try {
       const response = await signupApi(userFormData);
-      console.log(response)
       if (response.error) {
         throw new Error(response.error);
       }

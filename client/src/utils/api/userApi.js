@@ -169,11 +169,15 @@ export const updateUserPassword = async (userData) => {
 	}
 };
 //******************NERDLE RESULT */
-export const nerdleResult = async (nerdleData) => {
+export const nerdleResultApi = async (nerdleData) => {
 	//body should contain username, guesses number, and nerdleNumber
+	console.log(nerdleData)
 	try{
 		const response = await fetch('/api/users/nerdle', {
 			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
 			body: JSON.stringify(nerdleData)
 		})
 		if(!response.ok){
