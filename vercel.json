@@ -3,6 +3,6 @@
     "env": {
       "CI": "false"
     },
-    "output": "build"
+    "output": "client/public"
   }
 }
