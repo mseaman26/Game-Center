@@ -16,7 +16,7 @@ const Nerdle = () => {
           // Adjust the height of the iframe
     
           if (nerdleIframe.current) {
-            nerdleIframe.current.style.height = `${event.data.height}px`;
+            nerdleIframe.current.style.height = `550px`;
           }
         }
         if(event.data.nerdleNumber){
