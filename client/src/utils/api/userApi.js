@@ -98,6 +98,7 @@ export const showAllUsers = async () => {
 
 /*************     Creates A New User  ***************/
 export const signupApi = async (userData) => {
+	console.log('hello signup')
 	try {
 		console.log(process.env.MONGODB_URI)
 		const response = await fetch('/api/users/signup', {
