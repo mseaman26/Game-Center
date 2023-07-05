@@ -1,8 +1,8 @@
 {
-    "build": {
-      "env": {
-        "CI": "false"
-      }
-    }
+  "build": {
+    "env": {
+      "CI": "false"
+    },
+    "output": "build"
   }
-  
+}
