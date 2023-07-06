@@ -2,6 +2,7 @@
   "build": {
     "env": {
       "CI": "false"
-    }
+    },
+    "output": "client/build"
   }
 }
