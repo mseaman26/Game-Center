@@ -1,5 +1,5 @@
 import Auth from '../auth';
-require('dotenv').config()
+
 
 /******************     Login 	*******************/
 export const loginApi =  async (userData) => {
@@ -99,7 +99,6 @@ export const showAllUsers = async () => {
 
 /*************     Creates A New User  ***************/
 export const signupApi = async (userData) => {
-	console.log(process.env.MONGODB_URI)
 	try {
 		console.log(process.env.MONGODB_URI)
 		const response = await fetch('/api/users/signup', {
