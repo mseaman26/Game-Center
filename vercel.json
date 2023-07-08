@@ -1,8 +1,4 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "server/server.js", "use": "@vercel/node" }
-    ],
     "env": {
       "MONGODB_URI": "mongodb+srv://mseaman26:kitZAIhNsQwvmpEt@gamecenter.kqhgfgp.mongodb.net/gameCenter?retryWrites=true&w=majority"
     }
