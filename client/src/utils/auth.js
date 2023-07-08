@@ -1,6 +1,6 @@
 import jwt_decode from 'jwt-decode';
 
-class AuthService {
+class authService {
   getProfile() {
     if(!this.getToken()){
       return
@@ -41,5 +41,6 @@ class AuthService {
     // window.location.reload();
   }
 }
-
-export default new AuthService();
+//I did this because it might have been affecting deployment
+const AuthService = new authService()
+export default AuthService;
