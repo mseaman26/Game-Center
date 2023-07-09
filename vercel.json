@@ -1,7 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "/api/(.*)", "dest": "/serverless.js" },
+    { "src": "client/build/**", "use": "@vercel/static" },
     { "src": "serverless.js", "use": "@vercel/node" }
   ],
   "routes": [
