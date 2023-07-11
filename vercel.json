@@ -8,5 +8,13 @@
             "src": "./client/build",
             "use": "@vercel/static"
         }
+        
+        
+    ],
+    "rewrites": [
+       {
+        "source": "/(.*)",
+        "destination": "/server/server.js"
+       } 
     ]
 }
