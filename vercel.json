@@ -1,7 +1,12 @@
 {
-    "build": {
-        "env": {
-        "CI": "false"
+    "build": [
+        {
+            "src": "./server/server.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "./client/build",
+            "use": "@vercel/static"
         }
-    }
+    ]
 }
