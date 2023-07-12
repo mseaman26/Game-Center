@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { signupApi } from '../utils/api/userApi';
+import { signupApi } from '../utils/api/userApi.js';
 import { TextField, Button, Container, Typography } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../utils/authContext';
-import Auth from '../utils/auth'
+import { useAuthContext } from '../utils/authContext.js';
+import Auth from '../utils/auth.js'
 
 const SignupForm = () => {
   const { currentUser, setCurrentUser} = useAuthContext()

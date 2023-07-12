@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useRef} from "react";
-import {nerdleResultApi} from '../utils/api/userApi'
-import Auth from '../utils/auth'
-import { useAuthContext } from '../utils/authContext';
+import {nerdleResultApi} from '../utils/api/userApi.js'
+import { useAuthContext } from '../utils/authContext.js';
 
 const Nerdle = () => {
 

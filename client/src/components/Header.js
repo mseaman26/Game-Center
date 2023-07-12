@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom'
-import Auth from '../utils/auth'
-import { useAuthContext } from "../utils/authContext";
+import Auth from '../utils/auth.js'
+import { useAuthContext } from "../utils/authContext.js";
 import { useNavigate } from 'react-router-dom';
-import LoadingModal from "./LoadingModal/LoadingModal";
+import LoadingModal from "./LoadingModal/LoadingModal.js";
 
 
 

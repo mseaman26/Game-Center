@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { loginApi } from '../utils/api/userApi';
-import Auth from '../utils/auth';
+import { loginApi } from '../utils/api/userApi.js';
+import Auth from '../utils/auth.js';
 import { TextField, Button, Container, Typography } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '../utils/authContext';
+import { useAuthContext } from '../utils/authContext.js';
 
 
 const LoginForm = () => {
