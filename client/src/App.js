@@ -14,7 +14,7 @@ import { AuthProvider } from './utils/authContext.js'
 
 function App() {
   return (
-      <Router basename='https://game-center-ilziw0vjv-mseaman26.vercel.app/'>
+      <Router>
         <AuthProvider>
           <Header/>
           <Routes>
